@@ -1,0 +1,44 @@
+﻿@page
+@model Web_Messaging_Core_Web_App.Pages.Receivers.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Receiver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Receiver.ReceiverName" class="control-label"></label>
+                <input asp-for="Receiver.ReceiverName" class="form-control" />
+                <span asp-validation-for="Receiver.ReceiverName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.ReceiverEmail" class="control-label"></label>
+                <input asp-for="Receiver.ReceiverEmail" class="form-control" />
+                <span asp-validation-for="Receiver.ReceiverEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Receiver.RecieverMobile" class="control-label"></label>
+                <input asp-for="Receiver.RecieverMobile" class="form-control" />
+                <span asp-validation-for="Receiver.RecieverMobile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

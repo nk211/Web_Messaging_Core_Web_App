@@ -1,0 +1,54 @@
+﻿@page
+@model Web_Messaging_Core_Web_App.Pages.Messages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Messages</h1>
+
+<p>
+    <a class="btn btn-secondary" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Message[0].Sender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message[0].Receiver)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message[0].MessagingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message[0].MessageBody)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Message) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sender.SenderEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Receiver.ReceiverEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessagingType.MethodName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MessageBody)
+            </td>
+            <td>
+                <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

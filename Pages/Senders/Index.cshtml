@@ -1,0 +1,42 @@
+﻿@page
+@model Web_Messaging_Core_Web_App.Pages.Senders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Senders</h1>
+
+<p>
+    <a class="btn btn-secondary" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sender[0].SenderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sender[0].SenderEmail)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Sender) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SenderEmail)
+            </td>
+            <td>
+                <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,36 @@
+﻿@page
+@model Web_Messaging_Core_Web_App.Pages.MessagingTypes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Messaging Types</h1>
+
+<p>
+    <a class="btn btn-secondary" asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MessagingType[0].MethodName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MessagingType) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MethodName)
+            </td>
+            <td>
+                <a class="btn btn-secondary" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-secondary" asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-secondary" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
